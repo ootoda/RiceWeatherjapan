@@ -306,7 +306,7 @@ class RiceGameWindow:
             print(f"画像読み込みエラー: {e}")
     
     def load_japanese_font(self, size: int):
-        """日本語フォントを読み込み (PressStart2Pを優先)"""
+        """日本語フォントを読み込み (x12y16pxMaruMonica.ttfを優先)"""
         font_paths_to_try = [
             # 優先度1: PressStart2P (ファミコン風)
             os.path.join('fonts', 'x12y16pxMaruMonica.ttf'),
@@ -509,14 +509,14 @@ class RiceGameWindow:
                                                  True, self.colors['yellow'])
             self.screen.blit(speaker_text, (70, 405))
         
-        # メッセージテキスト表示（複数行対応）445は表示の高さの位置
+        # メッセージテキスト表示（複数行対応）445は表示の高さの位置 2行目の高さは45
         lines = self.wrap_text(self.display_message, self.width - 140)
         y_offset = 445
         for line in lines:
             if y_offset < 540:  # ウィンドウ内に収まる範囲
                 text_surface = self.font_small.render(line, True, self.colors['white'])
                 self.screen.blit(text_surface, (70, y_offset))
-                y_offset += 25
+                y_offset += 45
     
     def wrap_text(self, text: str, max_width: int) -> List[str]:
         """テキストを指定幅で折り返し"""
