@@ -558,8 +558,8 @@ class RiceGameWindow:
         
         # ニュース表示中の表示
         if self.showing_news:
-            news_indicator = self.font_small.render("【ニュース中】", True, self.colors['red'])
-            self.screen.blit(news_indicator, (500, 70))
+            news_indicator = self.font_small.render("【新しいトピックです】", True, self.colors['red'])
+            self.screen.blit(news_indicator, (70, 350))
         
         # 価格グラフ（簡易版）
         self.draw_price_indicator()
